@@ -13,6 +13,38 @@
   </head>
 
   <body>
+  <!-- navbar section - css from _navbar_car.scss in components -->
+  <div class="nav-wrapper">
+    <div class="nav-left">
+      <div class="logo-box">
+        <img src="images/classicar-logo-large.png" alt="" class="logo">
+      </div>
+    </div>
+    <div class="nav-center">
+      <div class="search-box">
+        <div class="search-input">
+        </div>
+        <div class="search-icon-box">
+          <img src="images/binoculars-svgrepo-com.svg" alt="" class="search-icon">
+        </div>
+      </div>
+    </div>
+    <div class="nav-right">
+      <div class="menu-box">
+        <div class="menu-list">
+          <svg viewBox="-15 -25 55 80" width="50" height="50">
+            <rect width="30" height="5" rx="8" style="fill: #708090"></rect>
+            <rect y="10" width="30" height="5" rx="8" style="fill: #708090"></rect>
+            <rect y="20" width="30" height="5" rx="8" style="fill: #708090"></rect>
+          </svg>
+        </div>
+        <div class="menu-avatar">
+          <img src="images/avatar-svgrepo-com.svg" alt="" class="avatar">
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- end of navbar -->
     <%= yield %>
   </body>
 </html>
