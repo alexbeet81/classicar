@@ -11,7 +11,11 @@ class BookingsController < ApplicationController
 
     def create
         @booking = Booking.new(booking_params)
-        @booking.save
+        if @booking.save
+            redirect_to booking_path(@booking)
+        else
+            render :new
+        end
         # TODO: may need to create conditional, for when Car is available or 'not booked'
         # TODO: add redirect to bookings_path when route created
     end
