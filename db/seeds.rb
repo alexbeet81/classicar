@@ -8,6 +8,8 @@
 
 # classic_cars: create an array of hashes. Each hash contains a model, seats, year, colour, image.
 # take a sample from the array.
+require "open-uri"
+
 puts "destroying all cars"
 Car.destroy_all
 puts "done"
@@ -75,4 +77,20 @@ classic_cars = [{model: 'Jaguar E-Type', seats: '2', year: '1967', colour: 'silv
               ]
 
 address = ['Beijing', 'Shanghai', 'Tianjin', 'Chengdu', 'Shenzhen', 'Guangzhou', 'Chongqing', 'Dongguan']
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
