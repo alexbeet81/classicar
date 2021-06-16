@@ -1,0 +1,46 @@
+  <!-- navbar section - css from _navbar_car.scss in components -->
+  <div class="nav-wrapper">
+    <div class="nav-left">
+      <div class="logo-box">
+        <%= image_tag "classicar-logo-large.png", :class => "logo" %>
+        <!-- <img src="../assets/images/classicar-logo-large.png" alt="" class="logo"> -->
+      </div>
+    </div>
+    <div class="nav-center">
+      <div class="search-box">
+        <div class="search-input">
+        </div>
+        <div class="search-icon-box">
+          <%= image_tag "binoculars-svgrepo-com.svg", :class => "search-icon" %>
+          <!-- <img src="../assets/images/binoculars-svgrepo-com.svg" alt="" class="search-icon"> -->
+        </div>
+      </div>
+    </div>
+    <div class="nav-right">
+      <div class="menu-box">
+        <div class="menu-list">
+          <div class="dropdown">
+            <svg viewBox="-15 -25 55 80" width="50" height="50">
+              <g>
+                <rect width="30" height="5" rx="8"></rect>
+                <rect y="10" width="30" height="5" rx="8"></rect>
+                <rect y="20" width="30" height="5" rx="8"></rect>
+              </g>
+            </svg>
+            <div class="dropdown-content">
+              <a href="#">Account</a>
+              <a href="#">Sign in</a>
+              <hr>
+              <a href="#">Browse cars</a>
+              <a href="#">About</a>
+            </div>
+          </div>
+        </div>
+        <div class="menu-avatar">
+          <%= image_tag "avatar-svgrepo-com.svg", :class => "avatar" %>
+          <!-- <img src="../assets/images/avatar-svgrepo-com.svg" alt="" class="avatar"> -->
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- end of navbar -->
