@@ -86,11 +86,12 @@ address = ['Beijing', 'Shanghai', 'Tianjin', 'Chengdu', 'Shenzhen', 'Guangzhou',
   new_user = User.new(
     email: Faker::Internet.email,
     password: "123456",
-    username: Faker::Movies::Lebowski.actor
+    username: Faker::Name.name
     )
   new_user.save!
+  puts "created new user: #{new_user.username}"
   car_address = address.sample
-  rand(3).times
+  rand(3).times do
     classic_car = classic_cars.sample
     new_car = Car.new(
       model: classic_car[:model],
@@ -100,10 +101,14 @@ address = ['Beijing', 'Shanghai', 'Tianjin', 'Chengdu', 'Shenzhen', 'Guangzhou',
       image_one: classic_car[:image_one],
       price: rand(100),
       address: car_address,
-      user_id: new_user.id,
+      user_id: new_user.id
       )
+    new_car.save!
+    puts "#{new_user.username} has a #{new_car.model}"
   end
 end
+
+puts "created #{User.count} new users and #{Car.count} new cars."
 
 
 
