@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   # every user will need to be signed in before they can do a certain action.
   before_action :authenticate_user!
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   # add additional username to sign up and sign in
   def configure_permitted_parameters
