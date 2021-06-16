@@ -88,7 +88,7 @@ address = ['Beijing', 'Shanghai', 'Tianjin', 'Chengdu', 'Shenzhen', 'Guangzhou',
     password: "123456",
     username: Faker::Name.name
     )
-  new_user.save!
+  new_user.save
   puts "created new user: #{new_user.username}"
   car_address = address.sample
   rand(3).times do
