@@ -8,6 +8,12 @@
 
 # classic_cars: create an array of hashes. Each hash contains a model, seats, year, colour, image.
 # take a sample from the array.
+puts "destroying all cars"
+Car.destroy_all
+puts "done"
+puts "destroying all users"
+User.destroy_all
+puts "done"
 
 classic_cars = [{model: 'Jaguar E-Type', seats: '2', year: '1967', colour: 'silver', image_one: 'https://hips.hearstapps.com/toc.h-cdn.co/assets/16/14/3200x1600/landscape-1459816624-1954-mercedes-300sl-gullwing-a.jpg?resize=980:*'},
                 {model: 'Chevrolet Corvette c1', seats: '2', year: '1963', colour: 'red', image_one: 'https://hips.hearstapps.com/toc.h-cdn.co/assets/16/14/2560x1906/1968-chevrolet-corvette_1.jpg?resize=980:*'},
@@ -68,6 +74,5 @@ classic_cars = [{model: 'Jaguar E-Type', seats: '2', year: '1967', colour: 'silv
                 {model: 'VW Minibus', seats: '8', year: '1960', colour: 'red and white', image_one: 'http://www.truckchamp.com/60%20Iconic%20and%20Classic%20Cars_files/vw-minibus---abbey-street-infomatique40-l.jpg'},
               ]
 
-
-
+address = ['Beijing', 'Shanghai', 'Tianjin', 'Chengdu', 'Shenzhen', 'Guangzhou', 'Chongqing', 'Dongguan']
 
