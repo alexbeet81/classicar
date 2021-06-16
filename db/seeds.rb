@@ -9,6 +9,7 @@
 # classic_cars: create an array of hashes. Each hash contains a model, seats, year, colour, image.
 # take a sample from the array.
 require "open-uri"
+require "faker"
 
 puts "destroying all cars"
 Car.destroy_all
@@ -81,6 +82,14 @@ address = ['Beijing', 'Shanghai', 'Tianjin', 'Chengdu', 'Shenzhen', 'Guangzhou',
 
 
 
+100.times do
+  new_user = User.new(
+    email: Faker::Internet.email,
+    password: "123456",
+    username: Faker::Movies::Lebowski.actor
+    )
+
+end
 
 
 
