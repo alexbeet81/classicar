@@ -88,7 +88,21 @@ address = ['Beijing', 'Shanghai', 'Tianjin', 'Chengdu', 'Shenzhen', 'Guangzhou',
     password: "123456",
     username: Faker::Movies::Lebowski.actor
     )
-
+  new_user.save!
+  car_address = address.sample
+  rand(3).times
+    classic_car = classic_cars.sample
+    new_car = Car.new(
+      model: classic_car[:model],
+      seats: classic_car[:seats],
+      year: classic_car[:year],
+      colour: classic_car[:colour],
+      image_one: classic_car[:image_one],
+      price: rand(100),
+      address: car_address,
+      user_id: new_user.id,
+      )
+  end
 end
 
 
