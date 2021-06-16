@@ -91,7 +91,7 @@ address = ['Beijing', 'Shanghai', 'Tianjin', 'Chengdu', 'Shenzhen', 'Guangzhou',
   new_user.save
   puts "created new user: #{new_user.username}"
   car_address = address.sample
-  rand(3).times do
+  rand(1..3).times do
     classic_car = classic_cars.sample
     new_car = Car.new(
       model: classic_car[:model],
