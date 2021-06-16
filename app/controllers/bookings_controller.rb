@@ -29,7 +29,7 @@ class BookingsController < ApplicationController
         # TODO: add redirect to bookings_path(@booking) when route created
     end
   
-    def delete
+    def destroy
         @booking.destroy(booking_params)
         # TODO: add redirect to bookings_path when route created
     end
