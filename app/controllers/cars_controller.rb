@@ -32,7 +32,7 @@ class CarsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @car.destroy
 
     redirect_to cars_path
