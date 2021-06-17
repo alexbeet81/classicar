@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     def create
         @booking = Booking.new(booking_params)
         if @booking.save
-            redirect_to booking_path(@booking)
+            redirect_to booking_path(@booking), notice: "Booking was successfully created."
         else
             render :new
         end
@@ -25,7 +25,11 @@ class BookingsController < ApplicationController
     def edit; end
   
     def update
-        @booking.update(booking_params)
+        if @booking.update(booking_params)
+            redirect_to booking_path(@booking), notice: "Booking was successfully edited."
+        else
+            render :edit
+        end
         # TODO: add redirect to bookings_path(@booking) when route created
     end
   
