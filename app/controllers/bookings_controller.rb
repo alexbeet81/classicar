@@ -17,11 +17,17 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
 
+    @user = current_user
+
+    @booking.user = @user
     @booking.car = @car
 
+    authorize @booking
+    binding.pry
     if @booking.save
-      redirect_to booking_path(@booking), notice: "Booking was successfully created."
+      redirect_to car_booking_path(@booking), notice: "Booking was successfully created."
     else
+      puts "=================NOT SAVING!!!!================="
       render :new
     end
     # TODO: may need to create conditional, for when Car is available or 'not booked'
@@ -33,7 +39,7 @@ class BookingsController < ApplicationController
 
   def update
     if @booking.update(booking_params)
-      redirect_to booking_path(@booking), notice: "Booking was successfully edited."
+      redirect_to car_booking_path(@booking), notice: "Booking was successfully edited."
     else
       render :edit
     end
