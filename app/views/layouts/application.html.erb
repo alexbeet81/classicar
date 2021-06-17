@@ -16,11 +16,10 @@
   </head>
 
   <body>
-    <%= render 'navbar' %>
-    <%= yield %>
+    <%= render './components/navbar' %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
-    <% render ‘footer’ %>
+    <%= yield %>
+    <%= render './components/footer' %>
   </body>
 </html>
