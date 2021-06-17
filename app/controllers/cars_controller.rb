@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-  before_action :set_car, only: [:show, :update, :destroy]
+  before_action :set_car, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
@@ -25,6 +25,8 @@ class CarsController < ApplicationController
       render :new
     end
   end
+
+  def edit; end
 
   def update
     @car.update(car_params)
