@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: 8e8ae220eadaa0c036999b7711106b1a84c372d9
+  branch: master
+  specs:
+    faker (2.18.0)
+      i18n (>= 1.6, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -138,6 +146,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.11.7-x86_64-linux)
       racc (~> 1.4)
+    open-uri (0.1.0)
     orm_adapter (0.5.0)
     pg (1.2.3)
     pry (0.13.1)
@@ -270,9 +279,11 @@ DEPENDENCIES
   cloudinary (~> 1.16.0)
   devise
   dotenv-rails
+  faker!
   font-awesome-sass
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  open-uri
   pg (~> 1.1)
   pry-byebug
   pry-rails
