@@ -1,13 +1,14 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit]
+  before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
     @bookings = Booking.all
+    @bookings = policy_scope(Booking)
   end
 
   def new
     @booking = Booking.new
-
+    authorize @booking
   end
 
   def create
@@ -18,7 +19,6 @@ class BookingsController < ApplicationController
       render :new
     end
     # TODO: may need to create conditional, for when Car is available or 'not booked'
-    # TODO: add redirect to bookings_path when route created
   end
 
   def show; end
@@ -31,12 +31,12 @@ class BookingsController < ApplicationController
     else
       render :edit
     end
-    # TODO: add redirect to bookings_path(@booking) when route created
   end
 
   def destroy
     @booking.destroy(booking_params)
-    # TODO: add redirect to bookings_path when route created
+
+    redirect_to car_path(@car)
   end
 
   private
@@ -47,5 +47,6 @@ class BookingsController < ApplicationController
 
   def set_booking
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
 end
