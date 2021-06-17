@@ -7,7 +7,9 @@ class CarsController < ApplicationController
     @cars = policy_scope(Car)
   end
 
-  def show; end
+  def show
+    @user = @car.user
+  end
 
   def new
     @car = Car.new
