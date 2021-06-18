@@ -1,23 +1,26 @@
- <div class="card" style="width: 18rem;">
-  <%= cl_image_tag @car.photo.key %>
-  <div class="card-body">
-    <h5 class="card-title"><%= @car.model %></h5>
-    <p class="card-text"><%= @car.address %></p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item"><%= @car.year %></li>
-    <li class="list-group-item"><%= @car.colour %></li>
-    <li class="list-group-item"><%= @user.username %></li>
-  </ul>
-  <div class="card-body">
-    <a href="#" class="card-link"></a>
-    <a href="#" class="card-link"><%= link_to 'book car', new_car_booking_path(@car) %></a>
-    <% if policy(@car).destroy? %>
-      <a href="#" class="card-link"><%= link_to 'edit car', edit_car_path(@car) %></a>
-      <a href="#" class="card-link"><%= link_to 'delete car',
-                                                car_path(@car),
-                                                method: :delete,
-                                                data: { confirm: 'Are you sure you want to delete this car?'} %></a>
-    <% end %>
+<div class="container">
+  <div class="card" style="width: 18rem;">
+    <%= cl_image_tag @car.photo.key %>
+    <div class="card-body">
+      <h5 class="card-title"><%= @car.model %></h5>
+      <p class="card-text"><%= @car.address %></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Year: <%= @car.year %></li>
+      <li class="list-group-item">Colour: <%= @car.colour %></li>
+      <li class="list-group-item">Owner: <%= @user.username %></li>
+      <li class="list-group-item">£<%= @car.price %> / hour</li>
+    </ul>
+    <div class="card-body">
+      <a href="#" class="card-link"></a>
+      <a href="#" class="card-link"><%= link_to 'book car', new_car_booking_path(@car) %></a>
+      <% if policy(@car).destroy? %>
+        <a href="#" class="card-link"><%= link_to 'edit car', edit_car_path(@car) %></a>
+        <a href="#" class="card-link"><%= link_to 'delete car',
+                                                  car_path(@car),
+                                                  method: :delete,
+                                                  data: { confirm: 'Are you sure you want to delete this car?'} %></a>
+      <% end %>
+    </div>
   </div>
 </div>
