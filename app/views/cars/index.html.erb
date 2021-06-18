@@ -12,9 +12,10 @@
             <p class="card-text"><%= car.address %></p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><%= car.year %></li>
-            <li class="list-group-item"><%= car.colour %></li>
-            <li class="list-group-item"><%= user.username %></li>
+            <li class="list-group-item">Year: <%= car.year %></li>
+            <li class="list-group-item">Colour: <%= car.colour %></li>
+            <li class="list-group-item">Owner: <%= user.username %></li>
+            <li class="list-group-item">£<%= car.price %> / hour</li>
           </ul>
           <div class="card-body">
             <a href="#" class="card-link"><%= link_to 'More info', car %></a>
