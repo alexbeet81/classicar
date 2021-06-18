@@ -1,5 +1,6 @@
 <h1>Cars</h1>
 <div class="container">
+  <%= link_to "Add car", new_car_path %>
   <div class="row row-cols-3 d-flex justify-content-between">
     <% @cars.each do |car| %>
       <% user = car.user %>
