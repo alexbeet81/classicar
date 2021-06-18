@@ -93,6 +93,7 @@ address = ['Beijing', 'Shanghai', 'Tianjin', 'Chengdu', 'Shenzhen', 'Guangzhou',
   car_address = address.sample
   rand(1..3).times do
     classic_car = classic_cars.sample
+    file = URI.open(classic_car[:image_one])
     new_car = Car.new(
       model: classic_car[:model],
       seats: classic_car[:seats],
@@ -103,6 +104,7 @@ address = ['Beijing', 'Shanghai', 'Tianjin', 'Chengdu', 'Shenzhen', 'Guangzhou',
       address: car_address,
       user_id: new_user.id
       )
+    new_car.photo.attach(io: file, filename: "#{classic_car[:model]}.jpg", content_type: 'image/jpg')
     new_car.save!
     puts "#{new_user.username} has a #{new_car.model}"
   end
