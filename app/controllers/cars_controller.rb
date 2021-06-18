@@ -7,7 +7,9 @@ class CarsController < ApplicationController
     @cars = policy_scope(Car)
   end
 
-  def show; end
+  def show
+    @user = @car.user
+  end
 
   def new
     @car = Car.new
@@ -22,6 +24,7 @@ class CarsController < ApplicationController
     if @car.save
       redirect_to car_path(@car)
     else
+      binding.pry
       render :new
     end
   end
@@ -52,6 +55,6 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    params.require(:car).permit(:model, :seats, :year, :colour, :address, :image_one, :image_two, :image_three, :photo)
+    params.require(:car).permit(:model, :seats, :year, :colour, :address, :price, :image_one, :image_two, :image_three, :photo)
   end
 end

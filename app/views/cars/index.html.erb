@@ -1,7 +1,37 @@
 <h1>Cars</h1>
+<div class="container">
+  <%= link_to "Add car", new_car_path %>
+  <div class="row row-cols-3 d-flex justify-content-between">
+    <% @cars.each do |car| %>
+      <% user = car.user %>
+      <div class="col mb-4">
+        <div class="card" style="width: 18rem;">
+          <img src="<%= car.image_one %>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><%= car.model %></h5>
+            <p class="card-text"><%= car.address %></p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><%= car.year %></li>
+            <li class="list-group-item"><%= car.colour %></li>
+            <li class="list-group-item"><%= user.username %></li>
+          </ul>
+          <div class="card-body">
+            <a href="#" class="card-link"><%= link_to 'More info', car %></a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
 
-<table>
+
+
+<!--
+
+
+<>
     <thead>
         <tr>
             <th>Name</th>
@@ -11,7 +41,7 @@
     </thead>
 
     <tbody>
-        <%= @cars.each do |car| %>
+        <% @cars.each do |car| %>
             <tr>
                 <td><%= car.model %></td>
                 <td><%= car.user_id %></td>
@@ -33,3 +63,4 @@
 <% if policy(Car).new?  %>
     <%= link_to 'New Car', new_car_path %>
 <% end %>
+ -->
