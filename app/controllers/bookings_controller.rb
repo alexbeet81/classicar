@@ -41,12 +41,10 @@ class BookingsController < ApplicationController
 
   def update
     # TODO: This is not currently working. Leads to /booking/:id
-
     @booking.user = @user
     @booking.car = @car
 
     authorize @booking
-
     if @booking.update(booking_params)
       redirect_to car_booking_path(@user, @booking), notice: "Booking was successfully edited."
     else

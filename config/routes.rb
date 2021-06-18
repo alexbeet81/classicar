@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'cars#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :cars do
-    resources :bookings, only: [:new, :create, :edit, :show, :update]
+    resources :bookings, only: [:show, :new, :create, :edit, :update]
   end
   resources :bookings, only: [:destroy]
 end
