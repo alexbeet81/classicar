@@ -2,6 +2,7 @@
   <div class="nav-wrapper">
     <div class="nav-left">
       <div class="logo-box">
+
         <%= image_tag "classicar-logo-large.png", :class => "logo" %>
         <!-- <img src="../assets/images/classicar-logo-large.png" alt="" class="logo"> -->
       </div>
@@ -29,12 +30,14 @@
             </svg>
             <div class="dropdown-content">
               <a href="#">Account</a>
+
               <% if user_signed_in? %>
                    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
                 <% else %>
                   <%= link_to "Login", new_user_session_path, class: "nav-link" %>
               <% end %>
-              <a href="#">Browse cars</a>
+
+              <%= link_to "Browse Cars", cars_path %>
               <a href="#">About</a>
             </div>
           </div>
