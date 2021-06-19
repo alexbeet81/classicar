@@ -82,7 +82,7 @@ address = ['Beijing', 'Shanghai', 'Tianjin', 'Chengdu', 'Shenzhen', 'Guangzhou',
 
 
 
-100.times do
+10.times do
   new_user = User.new(
     email: Faker::Internet.email,
     password: "123456",
