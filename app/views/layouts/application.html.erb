@@ -16,10 +16,12 @@
   </head>
 
   <body>
-    <%= render './components/navbar' %>
+    <%= render 'shared/navbar' %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <%= render './components/navbar' %>
     <%= yield %>
     <%= render './components/footer' %>
   </body>
 </html>
+
