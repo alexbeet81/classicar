@@ -29,8 +29,11 @@
             </svg>
             <div class="dropdown-content">
               <a href="#">Account</a>
-              <a href="#">Sign in</a>
-              <hr>
+              <% if user_signed_in? %>
+                   <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                <% else %>
+                  <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+              <% end %>
               <a href="#">Browse cars</a>
               <a href="#">About</a>
             </div>
