@@ -36,7 +36,7 @@
               </g>
             </svg>
             <div class="dropdown-content">
-              <%= link_to "Bookings" bookings_path %>
+              <%= link_to "Bookings", bookings_path %>
 
               <% if user_signed_in? %>
                    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
