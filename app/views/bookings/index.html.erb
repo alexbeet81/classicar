@@ -1,0 +1,30 @@
+<% if policy(booking).index? %>
+  <h1>Oh my god, wow!!!</h1>
+  <h2>you have just booked this beauty...</h2>
+
+
+  <div class="card" style="width: 18rem;">
+    <img src="<%= @car.image_one %>" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"><%= @car.model %></h5>
+      <p class="card-text"><%= @car.address %></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><%= @car.year %></li>
+      <li class="list-group-item"><%= @car.colour %></li>
+    </ul>
+    <div class="card-body">
+      <a href="#" class="card-link"><%= link_to 'edit booking', edit_booking_path(@booking) %></a>
+      <a href="#" class="card-ling"><%= link_to 'delete booking',
+                                  booking_path(@booking),
+                                  method: :delete,
+                                  data: {confirm: 'Are you sure you want to cancel this booking?'} %></a>
+    </div>
+  </div>
+
+  <h2>from <%= @car_owner.username %></h2>
+  <h2>Your booking time is from <%= @booking.start_time %></h2>
+  <h2>To <%= @booking.end_time %></h2>
+<% end %>
+
+
