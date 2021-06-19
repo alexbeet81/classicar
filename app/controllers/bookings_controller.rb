@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
 
     authorize @booking
     if @booking.save
-      redirect_to car_booking_path(@user, @booking), notice: "Booking was successfully created."
+      redirect_to booking_path(@booking), notice: "Booking was successfully created."
     else
       puts "=================NOT SAVING!!!!================="
       render :new
