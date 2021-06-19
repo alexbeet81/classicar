@@ -88,6 +88,12 @@ body {
 	width: 430px;
 	background-color: whitesmoke;
 	border-radius: 50px;
+	border:  none;
+	padding-left: 20px;
+}
+
+.search-input:focus {
+	outline: none;
 }
 
 .search-icon-box {

@@ -8,12 +8,19 @@
     </div>
     <div class="nav-center">
       <div class="search-box">
-        <div class="search-input">
+        <div>
+          <%= form_tag cars_path, method: :get do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "search-input",
+              placeholder: "Find a car"
+            %>
         </div>
         <div class="search-icon-box">
-          <%= image_tag "binoculars-svgrepo-com.svg", :class => "search-icon" %>
-          <!-- <img src="../assets/images/binoculars-svgrepo-com.svg" alt="" class="search-icon"> -->
+          <!-- <%= image_tag "binoculars-svgrepo-com.svg", :class => "search-icon" %> -->
+          <%= image_submit_tag "binoculars-svgrepo-com.svg", class: "search-icon" %>
         </div>
+        <% end %>
       </div>
     </div>
     <div class="nav-right">
@@ -44,3 +51,14 @@
     </div>
   </div>
 <!-- end of navbar -->
+<!-- 
+
+ <%= form_tag cars_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a car"
+    %>
+    <br>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %> -->
