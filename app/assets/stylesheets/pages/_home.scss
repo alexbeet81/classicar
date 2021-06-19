@@ -1,35 +1,63 @@
 // Specific CSS for your home-page
 
 body {
-	background-color: white;
+	background: url('hero-car.png') no-repeat 50% 50% / cover;
+  background-size: 700px auto;
+  background-position: right  top;
 }
 
+.home-text {
+	padding: 20px 0 20px 80px;
+}
+
+.home-text h1 {
+	font-family: 'Fugaz One', cursive;
+}
+
+.home-text p {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	font-size: 30px;
+}
+
+
 //navbar css below
+
+.mark-card-image {
+	height: 200px; 
+	width: auto; 
+	object-fit: cover;
+}
+
+.btn-outline-info:hover, .btn-outline-info:focus, .btn-outline-info:active, .btn-outline-info.active, .open>.dropdown-toggle.btn-outline-info {
+    color: white;
+}
 
 .nav-wrapper {
 	display: flex;
 	width:  100%;
 	height:  100px;
 	padding: 0 80px;
-	background-color: white;
+	background-color: none;
 	justify-content: space-between;
 	align-items: center;
-	box-shadow: 1px 6px 5px 0px rgba(215,215,215,0.50);
-/*	position:  fixed;
-	top: 0px;*/
+/*	box-shadow: 1px 6px 5px 0px rgba(215,215,215,0.50);*/
+	/*position:  fixed;
+	top: 0px;
+	z-index: 10;*/
 }
 
 .nav-left {
 	width: 100px;
 	height: 80px;
-	background-color: white;
+	background-color: none;
 	display: flex;
 }
 
 .nav-center {
 	width: 500px;
 	height: 80px;
-	background-color: white;
+	background-color: none;
 	display: flex;
 	align-items: center;
 }
@@ -37,7 +65,7 @@ body {
 .nav-right {
 	width: 80px;
 	height: 80px;
-	background-color: white;
+	background-color: none;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -149,7 +177,7 @@ g:hover {
   background-color: white;
   min-width: 200px;
   /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
-  box-shadow: 1px 6px 5px 0px rgba(215,215,215,0.80);
+  /*box-shadow: 1px 6px 5px 0px rgba(215,215,215,0.80);*/
   z-index: 1;
   border:  1px solid lightgrey;
   border-radius: 8px;
