@@ -79,7 +79,6 @@ classic_cars = [{model: 'Jaguar E-Type', seats: '2', year: '1967', address: '8 M
 
 # address = ['Beijing', 'Shanghai', 'Tianjin', 'Chengdu', 'Shenzhen', 'Guangzhou', 'Chongqing', 'Dongguan']
 
-
 100.times do
   new_user = User.new(
     email: Faker::Internet.email,
