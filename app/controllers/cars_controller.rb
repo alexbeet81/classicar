@@ -3,8 +3,19 @@ class CarsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @cars = Car.all
     @cars = policy_scope(Car)
+
+    if params[:query].present?
+      sql_query = " \
+        cars.address ILIKE :query \
+        OR cars.model ILIKE :query \
+        OR cars.colour ILIKE :query \
+        OR cars.year ILIKE :query \
+      "
+      @cars = Car.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @cars = Car.all
+    end
   end
 
   def show
