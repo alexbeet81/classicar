@@ -1,6 +1,4 @@
 <div class="container">
-  <div class="hero_img">
-
     <div class="form_container shadow">
       <h2>Log In</h2>
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -25,7 +23,5 @@
         </div>
       <% end %>
      <%= render "devise/shared/links" %>
-   </div>
-
   </div>
 </div>
