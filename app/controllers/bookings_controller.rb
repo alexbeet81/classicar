@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
 
     authorize @booking
     if @booking.save
-      redirect_to car_booking_path(@user, @booking), notice: "Booking was successfully created."
+      redirect_to booking_path(@booking), notice: "Booking was successfully created."
     else
       puts "=================NOT SAVING!!!!================="
       render :new
@@ -41,13 +41,11 @@ class BookingsController < ApplicationController
 
   def update
     # TODO: This is not currently working. Leads to /booking/:id
-    @booking.user = @user
-    @booking.car = @car
-
     authorize @booking
     if @booking.update(booking_params)
-      redirect_to car_booking_path(@user, @booking), notice: "Booking was successfully edited."
+      redirect_to booking_path(@booking), notice: "Booking was successfully edited."
     else
+      puts "=================NOT SAVING!!!!================="
       render :edit
     end
   end
