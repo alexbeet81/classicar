@@ -16,13 +16,6 @@
               class: "search-input",
               placeholder: "Find a car"
             %>
-              <div class="container form">
-                <%= simple_form_for([@car, @booking] ) do |f| %>
-                  <%= f.input :start_time, as: :date, html5: true %>
-                  <%= f.input :end_time, as: :date, html5: true %>
-                  <%= f.submit %>
-                <% end %>
-              </div>
         </div>
         <div class="search-icon-box">
           <!-- <%= image_tag "binoculars-svgrepo-com.svg", :class => "search-icon" %> -->
