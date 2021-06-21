@@ -1,0 +1,19 @@
+.card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.show-img-size {
+  width: 500;
+  height: 375;
+}
+
+.ul-no-pad li {
+  padding-left: 0
+}
+
+.show-viewing-title {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+}
