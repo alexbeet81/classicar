@@ -49,7 +49,7 @@
                 <li class="list-group-item">Colour: <%= car.colour %></li>
                 <li class="list-group-item">£<%= car.price %> / hour</li>
               </ul>
-              <% if car.cancelled == true %>
+              <% if booking.cancelled == true %>
                 <p>this booking has been cancelled.</p>
               <% end %>
               <div class="card-body">
