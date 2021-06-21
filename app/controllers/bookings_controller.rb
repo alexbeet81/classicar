@@ -62,7 +62,10 @@ class BookingsController < ApplicationController
 
     authorize @booking
 
-    if @booking.save(booking_params)
+    # this is returning a booking with cancelled = true
+
+    # booking params is failing = param is missing or the value is empty:booking
+    if @booking.save(cancel_params)
       redirect_to bookings_path(@booking), notice: "booking was successfully cancelled"
     else
       render :show, notice: "unable to cancel booking, please contact host"
@@ -77,6 +80,10 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:start_time, :end_time)
+  end
+
+  def cancel_params
+    params.permit(:start_time, :end_time, :cancelled)
   end
 
   def set_booking
