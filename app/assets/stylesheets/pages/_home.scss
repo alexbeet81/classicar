@@ -1,20 +1,44 @@
 // Specific CSS for your home-page
-
+/*
 body {
 	background: url('hero-car.png') no-repeat 50% 50% / cover;
   background-size: 700px auto;
   background-position: right  top;
 }
 
-.home-text {
+.hero-text {
 	padding: 20px 0 20px 80px;
 }
 
-.home-text h1 {
+.hero-text h1 {
 	font-family: 'Fugaz One', cursive;
 }
 
-.home-text p {
+.hero-text p {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	font-size: 30px;
+}*/
+
+// hero css below
+
+.hero-container {
+	width: 100%;
+	background: url('hero-car.png') no-repeat 50% 50% / cover;
+  background-size: 700px auto;
+  background-position: right  top;
+}
+
+.hero-text {
+	padding: 20px 0 20px 80px;
+}
+
+.hero-text h1 {
+	margin-top:  160px;
+	font-family: 'Fugaz One', cursive;
+}
+
+.hero-text p {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 300;
 	font-size: 30px;
@@ -29,10 +53,6 @@ body {
 	object-fit: cover;
 }
 
-.btn-outline-info:hover, .btn-outline-info:focus, .btn-outline-info:active, .btn-outline-info.active, .open>.dropdown-toggle.btn-outline-info {
-    color: white;
-}
-
 .nav-wrapper {
 	display: flex;
 	width:  100%;
@@ -41,10 +61,13 @@ body {
 	background-color: none;
 	justify-content: space-between;
 	align-items: center;
+	z-index: 9;
+	position: absolute;
+	top: 0px;
 /*	box-shadow: 1px 6px 5px 0px rgba(215,215,215,0.50);*/
 	/*position:  fixed;
 	top: 0px;
-	z-index: 10;*/
+	*/
 }
 
 .nav-left {
@@ -63,7 +86,7 @@ body {
 }
 
 .nav-right {
-	width: 80px;
+	width: 100px;
 	height: 80px;
 	background-color: none;
 	display: flex;

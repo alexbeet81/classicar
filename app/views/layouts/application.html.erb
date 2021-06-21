@@ -17,12 +17,14 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
-    <p hidden class="notice"><%= notice %></p>
-    <p hidden class="alert"><%= alert %></p>
-    <%= render './components/navbar' %>
-    <%= yield %>
-    <%= render './components/footer' %>
+    <div class="container-fluid" style="margin-top: 100px; padding: 0;">
+      <%= render 'shared/navbar' %>
+      <p hidden class="notice"><%= notice %></p>
+      <p hidden class="alert"><%= alert %></p>
+      <%= render './components/navbar' %>
+      <%= yield %>
+      <%= render './components/footer' %>
+    </div>
   </body>
 </html>
 
