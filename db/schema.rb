@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_21_114237) do
+ActiveRecord::Schema.define(version: 2021_06_21_133116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,7 +70,6 @@ ActiveRecord::Schema.define(version: 2021_06_21_114237) do
     t.integer "price"
     t.float "latitude"
     t.float "longitude"
-    t.boolean "cancelled", default: false
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 

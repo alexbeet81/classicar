@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: [:show, :edit, :update, :cancel]
   before_action :set_car, only: [:new, :create]
 
   def index
@@ -50,11 +50,18 @@ class BookingsController < ApplicationController
     end
   end
 
-  def destroy
-    @booking.destroy
+  # def destroy
+  #   @booking.destroy
 
-    # Currently redirects to cars_path (index of all the cars)
-    redirect_to cars_path
+  #   # Currently redirects to cars_path (index of all the cars)
+  #   redirect_to cars_path
+  # end
+
+  def cancel
+    binding.pry
+    @booking[:cancelled] = true
+
+    redirect_to bookings_path(@booking)
   end
 
   private
