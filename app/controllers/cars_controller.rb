@@ -22,7 +22,7 @@ class CarsController < ApplicationController
         lat: car.latitude,
         lng: car.longitude,
         info_window: render_to_string(partial: "info_window", locals: { car: car }),
-        image_url: car.model
+        image_url: helpers.asset_url('hero-car')
       }
     end
   end
