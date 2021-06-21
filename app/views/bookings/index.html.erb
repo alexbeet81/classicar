@@ -52,13 +52,15 @@
               <% if booking.cancelled == true %>
                 <p>this booking has been cancelled.</p>
               <% end %>
-              <div class="card-body">
-                <%= link_to 'edit booking', edit_booking_path(booking), class: "btn btn-outline-secondary" %>
-                <%= link_to 'cancel booking',
-                                            cancel_booking_path(booking),
-                                            class: "btn btn-outline-secondary",
-                                            data: {confirm: 'Are you sure you want to cancel this booking?'} %>
-            </div>
+              <% unless booking.cancelled == true %>
+                <div class="card-body">
+                  <%= link_to 'edit booking', edit_booking_path(booking), class: "btn btn-outline-secondary" %>
+                  <%= link_to 'cancel booking',
+                                              cancel_booking_path(booking),
+                                              class: "btn btn-outline-secondary",
+                                              data: {confirm: 'Are you sure you want to cancel this booking?'} %>
+                </div>
+              <% end %>
           </div>
         </div>
       <% end %>

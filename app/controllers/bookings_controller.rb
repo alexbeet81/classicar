@@ -58,10 +58,15 @@ class BookingsController < ApplicationController
   # end
 
   def cancel
-    binding.pry
-    @booking[:cancelled] = true
+    @booking.cancelled = true
 
-    redirect_to bookings_path(@booking)
+    authorize @booking
+
+    if @booking.save(booking_params)
+      redirect_to bookings_path(@booking), notice: "booking was successfully cancelled"
+    else
+      render :show, notice: "unable to cancel booking, please contact host"
+    end
   end
 
   private
