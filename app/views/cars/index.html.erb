@@ -1,39 +1,42 @@
-<div class="home-text">
-  <h1>classicar</h1>
-  <p>Find the car of your dreams.</p>
-  <p>Cruise in style.</p>
-</div>
+<div class="container-fluid" style="margin-top: -90px;">
+  <div class="hero-container">
+    <div class="hero-text">
+      <h1>classicar</h1>
+      <p>Find the car of your dreams.</p>
+      <p>Cruise in style.</p>
+    </div>
+  </div>
 
-<hr style="color: gray; margin: 60px 80px 20px 80px;">
+  <hr style="color: gray; margin: 40px 80px 20px 80px;">
 
-<div class="container">
-  <h1 class="ml-4" style="margin-left: 80px; font-family: Fugaz One;">Cars</h1>
-  <%= link_to "Add car", new_car_path, :class => "btn btn-dark ml-4" %>
-  <div class="row d-flex">
-    <% @cars.each do |car| %>
-      <% user = car.user %>
-      <div class="col-4 p-5">
-        <div class="card shadow">
-          <%= cl_image_tag car.photo.key, :class => "card-img-top mark-card-image" %>
-          <div class="card-body">
-            <h5 class="card-title"><%= car.model %></h5>
-            <p class="card-text font-italic"><%= car.address %></p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Year: <%= car.year %></li>
-            <li class="list-group-item">Colour: <%= car.colour %></li>
-            <li class="list-group-item">Owner: <%= user.username %></li>
-            <li class="list-group-item">£<%= car.price %> / hour</li>
-          </ul>
-          <div class="card-body">
-            <a href="#" class="card-link"><%= link_to 'More info', car, :class => "btn btn-outline-info" %></a>
+  <div class="container">
+    <h1 class="ml-4" style="margin-left: 80px; font-family: Fugaz One;">Cars</h1>
+    <%= link_to "Add car", new_car_path, :class => "btn btn-dark ml-4" %>
+    <div class="row d-flex">
+      <% @cars.each do |car| %>
+        <% user = car.user %>
+        <div class="col-4 p-5">
+          <div class="card shadow">
+            <%= cl_image_tag car.photo.key, :class => "card-img-top mark-card-image" %>
+            <div class="card-body">
+              <h5 class="card-title"><%= car.model %></h5>
+              <p class="card-text font-italic"><%= car.address %></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Year: <%= car.year %></li>
+              <li class="list-group-item">Colour: <%= car.colour %></li>
+              <li class="list-group-item">Owner: <%= user.username %></li>
+              <li class="list-group-item">£<%= car.price %> / hour</li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link"><%= link_to 'More info', car, :class => "btn btn-outline-dark" %></a>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
-
 
 
 
