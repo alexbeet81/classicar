@@ -5,17 +5,19 @@ class CarsController < ApplicationController
   def index
     @cars = policy_scope(Car)
 
-    if params[:query].present?
-      sql_query = " \
-        cars.address ILIKE :query \
-        OR cars.model ILIKE :query \
-        OR cars.colour ILIKE :query \
-        OR cars.year ILIKE :query \
-      "
-      @cars = Car.where(sql_query, query: "%#{params[:query]}%")
-    else
-      @cars = Car.all
-    end
+    # if params[:query].present?
+    #   sql_query = " \
+    #     cars.address ILIKE :query \
+    #     OR cars.model ILIKE :query \
+    #     OR cars.colour ILIKE :query \
+    #     OR cars.year ILIKE :query \
+    #   "
+    #   @cars = Car.where(sql_query, query: "%#{params[:query]}%")
+    # else
+    #   @cars = Car.all
+    # end
+
+    @cars = Car.all
 
     @markers = @cars.geocoded.map do |flat|
       {
