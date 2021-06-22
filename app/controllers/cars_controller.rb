@@ -32,7 +32,9 @@ class CarsController < ApplicationController
 
     @bookings = @car.bookings
 
-    @reivews = Review.all
+    @reviews = Review.all
+
+    # match where review.car_id == car.id
   end
 
   def new
