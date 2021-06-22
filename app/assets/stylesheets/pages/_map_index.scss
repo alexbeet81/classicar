@@ -1,0 +1,22 @@
+#map {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  margin: 16px 16px 16px 0;
+}
+
+.cards-map-index {
+  display: grid;
+  grid-template-columns: repeat(2, 300px);
+  grid-gap: 16px;
+  flex-grow: 1;
+  margin: 16px;
+}
+
+.main-container-map-index {
+  display: flex;
+  padding: 0 80px;
+}
+
+
+
