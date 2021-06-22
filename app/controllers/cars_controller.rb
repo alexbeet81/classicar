@@ -7,10 +7,10 @@ class CarsController < ApplicationController
 
     if params[:query].present?
       sql_query = " \
-        cars.address ILIKE :query \
-        OR cars.model ILIKE :query \
-        OR cars.colour ILIKE :query \
-        OR cars.year ILIKE :query \
+        cars.address @@ :query \
+        OR cars.model @@ :query \
+        OR cars.colour @@ :query \
+        OR cars.year @@ :query \
       "
       @cars = Car.where(sql_query, query: "%#{params[:query]}%")
     else
