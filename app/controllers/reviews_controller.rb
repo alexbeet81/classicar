@@ -1,11 +1,13 @@
 class ReviewsController < ApplicationController
   before_action :set_car, only: [:new, :create]
   before_action :set_review, only: [:edit, :update, :destroy]
-  before_action :authorize_reivew, only: [:new, :create, :edit, :destroy]
-  before_action :set_car_id, only: [:update, :destroy, :create]
+  before_action :authorize_review, only: [:edit, :update, :destroy]
+  before_action :set_car_id, only: [:update, :destroy]
 
   def new
     @review = Review.new
+
+    authorize @review
   end
 
   def create
@@ -13,7 +15,9 @@ class ReviewsController < ApplicationController
 
     @review.user = current_user
 
-    # @review.car_id = @car.id
+    authorize @review
+
+    @review.car_id = @car.id
 
     if @review.save
       redirect_to car_path(@car)
