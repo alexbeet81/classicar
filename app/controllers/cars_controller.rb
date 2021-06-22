@@ -32,6 +32,8 @@ class CarsController < ApplicationController
 
   def show
     @user = @car.user
+    @booking = Booking.new
+    authorize @booking
   end
 
   def new
@@ -47,7 +49,6 @@ class CarsController < ApplicationController
     if @car.save
       redirect_to car_path(@car)
     else
-      binding.pry
       render :new
     end
   end
