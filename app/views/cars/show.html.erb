@@ -15,7 +15,9 @@
                     <li class="list-group-item">Address: <%= @car.address %></li>
                     <li class="list-group-item">£<%= @car.price %> / hour</li>
                   </ul>
-                  <%= link_to 'book car', new_car_booking_path(@car), class: "btn btn-outline-dark mt-3" %>
+                  <% unless @current_user == @user %>
+                    <%= link_to 'book car', new_car_booking_path(@car), class: "btn btn-outline-dark mt-3" %>
+                  <% end %>
                     <% if policy(@car).destroy? %>
                       <a href="#" class="card-link"><%= link_to 'edit car', edit_car_path(@car) %></a>
                       <a href="#" class="card-link"><%= link_to 'delete car',
