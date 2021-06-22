@@ -30,9 +30,14 @@
               <small class="text-muted">Owner: <%= @user.username %></small>
           </div>
           <div>
-            <% @bookings.each do |booking| %>
-              <%= booking.comment %>
-              <%= booking.stars * ⭐️ %>
+            <% @reivews.each do |review| %>
+              <h2><%= review.comment %></h2>
+              <h5><%= '⭐️' * review.star %></h5>
+              <a href=""><%= link_to 'edit', edit_review_path(review) %></a>
+              <a href=""><%= link_to 'delete', review_path(review),
+                                               method: :delete,
+                                               data: { confirm: 'Are you sure
+                                                you want to delete review?'} %></a>
             <% end %>
           </div>
       </div>

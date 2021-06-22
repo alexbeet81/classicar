@@ -29,6 +29,8 @@ class CarsController < ApplicationController
 
   def show
     @user = @car.user
+
+    @reivews = Review.all
   end
 
   def new
