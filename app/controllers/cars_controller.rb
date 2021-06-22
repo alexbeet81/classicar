@@ -6,14 +6,17 @@ class CarsController < ApplicationController
     @cars = policy_scope(Car)
 
     if params[:query].present?
-      sql_query = " \
-        cars.address ILIKE :query \
-        OR cars.model ILIKE :query \
-        OR cars.colour ILIKE :query \
-        OR cars.year ILIKE :query \
-      "
-      @cars = Car.where(sql_query, query: "%#{params[:query]}%")
+      # sql_query = " \
+      #   cars.address @@ :query \
+      #   OR cars.model @@ :query \
+      #   OR cars.colour @@ :query \
+      #   OR cars.year @@ :query \
+      # "
+      # @cars = Car.where(sql_query, query: "%#{params[:query]}%")
+      @show_map = true
+      @cars = Car.search_by_model_year_colour_and_address(params[:query])
     else
+      @show_map = false
       @cars = Car.all
     end
 
@@ -34,7 +37,8 @@ class CarsController < ApplicationController
 
     @reviews = Review.all
 
-    # match where review.car_id == car.id
+    @booking = Booking.new
+    authorize @booking
   end
 
   def new
@@ -80,6 +84,8 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    params.require(:car).permit(:model, :seats, :year, :colour, :address, :price, :image_one, :image_two, :image_three, :photo)
+    params.require(:car).permit(:model, :seats, :year, :colour, :address,
+                                :price, :image_one, :image_two, :image_three,
+                                :photo, :description)
   end
 end

@@ -6,7 +6,14 @@ class Car < ApplicationRecord
 
   after_validation :geocode, if: :will_save_change_to_address?
 
-  validates :model, :seats, :year, :colour, :address, presence: true
+  validates :model, :seats, :year, :colour, :address, :description, presence: true
 
   has_one_attached :photo
+
+  include PgSearch::Model
+  pg_search_scope :search_by_model_year_colour_and_address,
+    against: [ :model, :year, :colour, :address],
+    using: {
+      tsearch: { prefix: true }
+    }
 end

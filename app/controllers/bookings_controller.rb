@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: [:show, :edit, :update, :cancel]
   before_action :set_car, only: [:new, :create]
 
   def index
@@ -23,7 +23,9 @@ class BookingsController < ApplicationController
     @booking.car = @car
 
     authorize @booking
-    if @booking.save
+
+    @booking.cancelled = false
+    if @booking.save!
       redirect_to booking_path(@booking), notice: "Booking was successfully created."
     else
       puts "=================NOT SAVING!!!!================="
@@ -50,11 +52,26 @@ class BookingsController < ApplicationController
     end
   end
 
-  def destroy
-    @booking.destroy
+  # def destroy
+  #   @booking.destroy
 
-    # Currently redirects to cars_path (index of all the cars)
-    redirect_to cars_path
+  #   # Currently redirects to cars_path (index of all the cars)
+  #   redirect_to cars_path
+  # end
+
+  def cancel
+    @booking.cancelled = true
+
+    authorize @booking
+
+    # this is returning a booking with cancelled = true
+
+    # booking params is failing = param is missing or the value is empty:booking
+    if @booking.save(cancel_params)
+      redirect_to bookings_path(@booking), notice: "booking was successfully cancelled"
+    else
+      render :show, notice: "unable to cancel booking, please contact host"
+    end
   end
 
   private
@@ -64,7 +81,11 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_time, :end_time)
+    params.require(:booking).permit(:start_time, :end_time, :cancelled)
+  end
+
+  def cancel_params
+    params.permit(:start_time, :end_time, :cancelled)
   end
 
   def set_booking

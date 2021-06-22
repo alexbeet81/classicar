@@ -14,8 +14,12 @@
                     <li class="list-group-item">Colour: <%= @car.colour %></li>
                     <li class="list-group-item">Address: <%= @car.address %></li>
                     <li class="list-group-item">£<%= @car.price %> / hour</li>
+                    <li class="list-group-item">description</li>
+                    <li class="list-group-item"><%= @car.description %></li>
                   </ul>
-                  <%= link_to 'book car', new_car_booking_path(@car), class: "btn btn-outline-dark mt-3" %>
+                  <% unless @current_user == @user %>
+                    <%= link_to 'book car', new_car_booking_path(@car), class: "btn btn-outline-dark mt-3" %>
+                  <% end %>
                     <% if policy(@car).destroy? %>
                       <a href="#" class="card-link"><%= link_to 'edit car', edit_car_path(@car) %></a>
                       <a href="#" class="card-link"><%= link_to 'delete car',
@@ -50,6 +54,14 @@
           </div>
       </div>
     </div>
+  </div>
+  <h1 class="form-text">book this car!</h1>
+  <div class="container form">
+    <%= simple_form_for([@car, @booking] ) do |f| %>
+      <%= f.input :start_time, as: :date, html5: true %>
+      <%= f.input :end_time, as: :date, html5: true %>
+      <%= f.submit %>
+    <% end %>
   </div>
 </div>
 

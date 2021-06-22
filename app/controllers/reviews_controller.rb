@@ -15,6 +15,7 @@ class ReviewsController < ApplicationController
 
     @review.user = current_user
 
+
     authorize @review
 
     @review.car_id = @car.id
@@ -29,6 +30,7 @@ class ReviewsController < ApplicationController
   def edit; end
 
   def update
+
     if @review.update(review_params)
       redirect_to car_path(@car)
     else

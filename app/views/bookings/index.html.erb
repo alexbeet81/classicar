@@ -49,14 +49,18 @@
                 <li class="list-group-item">Colour: <%= car.colour %></li>
                 <li class="list-group-item">£<%= car.price %> / hour</li>
               </ul>
-              <div class="card-body">
-                <%= link_to 'edit booking', edit_booking_path(booking), class: "btn btn-outline-secondary" %>
-                <%= link_to 'delete booking',
-                                            booking_path(booking),
-                                            method: :delete,
-                                            class: "btn btn-outline-secondary",
-                                            data: {confirm: 'Are you sure you want to cancel this booking?'} %>
-            </div>
+              <% if booking.cancelled == true %>
+                <p>this booking has been cancelled.</p>
+              <% end %>
+              <% unless booking.cancelled == true %>
+                <div class="card-body">
+                  <%= link_to 'edit booking', edit_booking_path(booking), class: "btn btn-outline-secondary" %>
+                  <%= link_to 'cancel booking',
+                                              cancel_booking_path(booking),
+                                              class: "btn btn-outline-secondary",
+                                              data: {confirm: 'Are you sure you want to cancel this booking?'} %>
+                </div>
+              <% end %>
           </div>
         </div>
       <% end %>
