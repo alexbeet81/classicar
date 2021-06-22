@@ -6,13 +6,14 @@ class CarsController < ApplicationController
     @cars = policy_scope(Car)
 
     if params[:query].present?
-      sql_query = " \
-        cars.address @@ :query \
-        OR cars.model @@ :query \
-        OR cars.colour @@ :query \
-        OR cars.year @@ :query \
-      "
-      @cars = Car.where(sql_query, query: "%#{params[:query]}%")
+      # sql_query = " \
+      #   cars.address @@ :query \
+      #   OR cars.model @@ :query \
+      #   OR cars.colour @@ :query \
+      #   OR cars.year @@ :query \
+      # "
+      # @cars = Car.where(sql_query, query: "%#{params[:query]}%")
+      @cars = Car.search_by_model_year_colour_and_address(params[:query])
     else
       @cars = Car.all
     end
