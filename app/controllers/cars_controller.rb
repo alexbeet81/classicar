@@ -44,7 +44,6 @@ class CarsController < ApplicationController
     if @car.save
       redirect_to car_path(@car)
     else
-      binding.pry
       render :new
     end
   end
