@@ -2,9 +2,9 @@
   <div class="nav-wrapper">
     <div class="nav-left">
       <div class="logo-box">
-
-        <%= image_tag "classicar-logo-large.png", :class => "logo" %>
-        <!-- <img src="../assets/images/classicar-logo-large.png" alt="" class="logo"> -->
+        <%= link_to cars_path do %>
+          <%= image_tag "classicar-logo-large.png", :class => "logo" %>
+        <% end %>
       </div>
     </div>
     <div class="nav-center">
