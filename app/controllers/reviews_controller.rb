@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_car, only: [:new, :create, :destroy]
+  before_action :set_car, only: [:new, :create]
   before_action :set_review, only: [:edit, :update, :destroy]
 
   def new
@@ -38,8 +38,10 @@ class ReviewsController < ApplicationController
   def destroy
     @review.destroy
 
+    @car = @review.car_id
+
     # Currently redirects to cars_path (index of all the cars)
-    redirect_to car_path(@car)
+    redirect_to cars_path(@car)
   end
 
   private
