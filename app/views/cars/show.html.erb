@@ -23,7 +23,11 @@
                                                                 method: :delete,
                                                                 data: { confirm: 'Are you sure you want to delete this car?'} %></a>
                     <% end %>
-                      <a href="#" class="card-link"><%= link_to 'add review', new_car_review_path(@car) %></a>
+                      <% @bookings.each do |booking| %>
+                        <% if booking.user == current_user %>
+                          <a href="#" class="card-link"><%= link_to 'add review', new_car_review_path(@car) %></a>
+                        <% end %>
+                      <% end %>
               </div>
           </div>
           <div class="card-footer">

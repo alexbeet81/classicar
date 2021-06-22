@@ -30,6 +30,8 @@ class CarsController < ApplicationController
   def show
     @user = @car.user
 
+    @bookings = @car.bookings
+
     @reivews = Review.all
   end
 
