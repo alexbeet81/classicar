@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
   end
   resources :bookings, only: [:index, :show, :destroy, :edit, :update]
-  resources :reviews, only: [:destroy, :edit, :update]
+  resources :reviews, only: [:index, :destroy, :edit, :update]
 end
