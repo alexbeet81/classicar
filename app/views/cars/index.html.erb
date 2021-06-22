@@ -26,7 +26,7 @@
           <%= cl_image_tag car.photo.key, :class => "card-img-top mark-card-image" %>
           <div class="card-body">
             <h5 class="card-title"><%= car.model %></h5>
-            <p class="card-text font-italic"><%= car.address %></p>
+            <p class="card-text font-italic" style="height: 60px;"><%= car.address %></p>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Year: <%= car.year %></li>
