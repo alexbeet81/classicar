@@ -17,6 +17,10 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
+  def cancel?
+    true
+  end
+
   def update?
     # should the renter and car owner be able to edit?
     record.user == user
