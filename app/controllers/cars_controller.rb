@@ -13,8 +13,10 @@ class CarsController < ApplicationController
       #   OR cars.year @@ :query \
       # "
       # @cars = Car.where(sql_query, query: "%#{params[:query]}%")
+      @show_map = true
       @cars = Car.search_by_model_year_colour_and_address(params[:query])
     else
+      @show_map = false
       @cars = Car.all
     end
 
