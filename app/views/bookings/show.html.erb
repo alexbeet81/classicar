@@ -17,11 +17,10 @@
         </ul>
         <div class="card-body" style="border: none">
           <a href="#" class="card-link"><%= link_to 'edit booking', edit_booking_path(@booking), class: "btn btn-outline-secondary" %></a>
-          <a href="#" class="card-ling"><%= link_to 'delete booking',
-                                      booking_path(@booking),
-                                      class: "btn btn-outline-secondary",
-                                      method: :delete,
-                                      data: {confirm: 'Are you sure you want to cancel this booking?'} %></a>
+          <a href="#" class="card-ling"><%= link_to 'cancel booking',
+                                              cancel_booking_path(booking),
+                                              class: "btn btn-outline-secondary",
+                                              data: {confirm: 'Are you sure you want to cancel this booking?'} %></a>
         </div>
       </div>
       <!-- <div style="padding-left: 20px; font-size: 10px;">

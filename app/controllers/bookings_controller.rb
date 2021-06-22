@@ -23,7 +23,9 @@ class BookingsController < ApplicationController
     @booking.car = @car
 
     authorize @booking
-    if @booking.save
+
+    @booking.cancelled = false
+    if @booking.save!
       redirect_to booking_path(@booking), notice: "Booking was successfully created."
     else
       puts "=================NOT SAVING!!!!================="
@@ -79,7 +81,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_time, :end_time)
+    params.require(:booking).permit(:start_time, :end_time, :cancelled)
   end
 
   def cancel_params
