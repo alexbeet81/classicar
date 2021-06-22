@@ -5,7 +5,7 @@ class Car < ApplicationRecord
 
   after_validation :geocode, if: :will_save_change_to_address?
 
-  validates :model, :seats, :year, :colour, :address, presence: true
+  validates :model, :seats, :year, :colour, :address, :description, presence: true
 
   has_one_attached :photo
 end

@@ -98,7 +98,8 @@ classic_cars = [{model: 'Jaguar E-Type', seats: '2', year: '1967', address: '8 M
       image_one: classic_car[:image_one],
       price: rand(100),
       address: classic_car[:address],
-      user_id: new_user.id
+      user_id: new_user.id,
+      description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4)
       )
     new_car.photo.attach(io: file, filename: "#{classic_car[:model]}.jpg", content_type: 'image/jpg')
     new_car.save!
