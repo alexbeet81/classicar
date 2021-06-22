@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
 
     authorize @review
 
-    if @review.save!
+    if @review.save
       redirect_to car_path(@car)
     else
       render :new
