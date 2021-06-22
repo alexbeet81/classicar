@@ -37,8 +37,8 @@
       <% @bookings.each do |booking| %>
         <% car = booking.car %>
         <% car_owner = car.user %>
-        <div class="col-4 p-5">
-          <div class="card shadow">
+        <div class="col-4 p-5 load-hidden">
+          <div class="card shadow ">
             <%= cl_image_tag car.photo.key, :class => "card-img-top mark-card-image" %>
               <div class="card-body">
                 <h5 class="card-title"><%= car.model %></h5>
