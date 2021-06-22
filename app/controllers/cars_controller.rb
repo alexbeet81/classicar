@@ -32,6 +32,11 @@ class CarsController < ApplicationController
 
   def show
     @user = @car.user
+
+    @bookings = @car.bookings
+
+    @reviews = Review.all
+
     @booking = Booking.new
     authorize @booking
   end

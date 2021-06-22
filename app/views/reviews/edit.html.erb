@@ -1,0 +1,10 @@
+<div class="container">
+  <h1 class="form-text">review</h1>
+  <div class="container form">
+    <%= simple_form_for([@car, @review] ) do |f| %>
+      <%= f.input :comment %>
+      <%= f.input :star%>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

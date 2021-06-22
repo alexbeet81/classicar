@@ -1,9 +1,12 @@
 class ReviewsController < ApplicationController
   before_action :set_car, only: [:new, :create]
   before_action :set_review, only: [:edit, :update, :destroy]
+  before_action :authorize_review, only: [:edit, :update, :destroy]
+  before_action :set_car_id, only: [:update, :destroy]
 
   def new
     @review = Review.new
+
     authorize @review
   end
 
@@ -12,9 +15,10 @@ class ReviewsController < ApplicationController
 
     @review.user = current_user
 
-    @review.car_id = @car.id
 
     authorize @review
+
+    @review.car_id = @car.id
 
     if @review.save
       redirect_to car_path(@car)
@@ -26,10 +30,9 @@ class ReviewsController < ApplicationController
   def edit; end
 
   def update
-    authorize @review
 
     if @review.update(review_params)
-      redirect_to review_path(@review)
+      redirect_to car_path(@car)
     else
       render :edit
     end
@@ -38,10 +41,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review.destroy
 
-    @car = @review.car_id
-
-    # Currently redirects to cars_path (index of all the cars)
-    redirect_to cars_path(@car)
+    redirect_to car_path(@car)
   end
 
   private
@@ -56,5 +56,13 @@ class ReviewsController < ApplicationController
 
   def set_car
     @car = Car.find(params[:car_id])
+  end
+
+  def authorize_review
+    authorize @review
+  end
+
+  def set_car_id
+    @car = @review.car_id
   end
 end
