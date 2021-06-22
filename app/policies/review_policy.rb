@@ -14,7 +14,8 @@ class ReviewPolicy < ApplicationPolicy
   end
 
   def destroy?
-    true
+    # this works
+    record.user == user
   end
 
   def update?
