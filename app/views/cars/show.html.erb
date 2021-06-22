@@ -4,7 +4,7 @@
       <h2 class="show-viewing-title">You are viewing <span class="font-italic"><%= @car.model %></span></h2>
       <div class="card shadow rounded">
           <div class="card-horizontal">
-              <div class="img-square-wrapper">
+              <div class="img-square-wrapper align-self-center">
                 <%= cl_image_tag(@car.photo.key, :width => 500, :crop => "pad") %>
               </div>
               <div class="card-body">
