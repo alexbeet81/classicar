@@ -24,7 +24,7 @@ body {
 
 .hero-container {
 	width: 100%;
-	background: url('hero-car.png') no-repeat 50% 50% / cover;
+	// background: url('hero-car.png') no-repeat 50% 50% / cover;
   background-size: 700px auto;
   background-position: right  top;
 }
@@ -48,8 +48,8 @@ body {
 //navbar css below
 
 .mark-card-image {
-	height: 200px; 
-	width: auto; 
+	height: 200px;
+	width: auto;
 	object-fit: cover;
 }
 
