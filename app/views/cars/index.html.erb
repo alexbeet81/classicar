@@ -14,17 +14,13 @@
   <div class="main-container-map-index">
     <div class="cards-map-index">
       <% @cars.each do |car| %>
-      <% user = car.user %>
       <div class="card shadow">
         <%= cl_image_tag car.photo.key, :class => "card-img-top mark-card-image" %>
         <div class="card-body">
           <h5 class="card-title"><%= car.model %></h5>
-          <p class="card-text font-italic" style="height: 60px;"><%= car.address %></p>
         </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Year: <%= car.year %></li>
-            <li class="list-group-item">Colour: <%= car.colour %></li>
-            <li class="list-group-item">Owner: <%= user.username %></li>
             <li class="list-group-item">£<%= car.price %> / hour</li>
           </ul>
         <div class="card-body">
@@ -36,11 +32,11 @@
     <div id="map"
       style="width: 100%; height: 700px; position: sticky; top: 0;"
       data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">    
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
 
-  <% else %>  
+  <% else %>
   <div class="container">
   <h1 class="ml-4" style="margin-left: 80px; font-family: Fugaz One;">Cars</h1>
   <%= link_to "Add car", new_car_path, :class => "btn btn-dark ml-4" %>
