@@ -10,7 +10,10 @@
   <hr style="color: gray; margin: 40px 80px 20px 80px;">
 
   <% if @show_map %>
-  <h1 style="margin-left: 80px; font-family: Fugaz One;">Cars</h1>
+  <div class="d-flex align-items-baseline">
+    <h1 style="margin-left: 80px; font-family: Fugaz One;">Cars</h1>
+    <p class="ml-1">we found <strong><%= @cars.count %></strong> that match your search</p>
+  </div>
   <div class="main-container-map-index">
     <div class="cards-map-index">
       <% @cars.each do |car| %>
@@ -42,21 +45,21 @@
   <%= link_to "Add car", new_car_path, :class => "btn btn-dark ml-4" %>
   <div class="row d-flex">
     <% @cars.each do |car| %>
-      <% user = car.user %>
       <div class="col-4 p-5">
         <div class="card shadow">
           <%= cl_image_tag car.photo.key, :class => "card-img-top mark-card-image" %>
-          <div class="card-body">
-            <h5 class="card-title"><%= car.model %></h5>
-            <p class="card-text font-italic" style="height: 60px;"><%= car.address %></p>
+          <div class="card-body pb-0">
+            <% if car.model.length < 16 %>
+              <h5 class="card-title text-center" style="font-size: 32px; font-family: Fugaz One;"><%= car.model %></h5>
+            <% else %>
+              <h5 class="card-title text-center" style="font-size: 24px; font-family: Fugaz One;"><%= car.model %></h5>
+            <% end %>
           </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Year: <%= car.year %></li>
-            <li class="list-group-item">Colour: <%= car.colour %></li>
-            <li class="list-group-item">Owner: <%= user.username %></li>
-            <li class="list-group-item">£<%= car.price %> / hour</li>
-          </ul>
-          <div class="card-body">
+          <div class="mx-5 d-flex align-items-center justify-content-between">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Year: <%= car.year %></li>
+              <li class="list-group-item">£<%= car.price %> / hour</li>
+            </ul>
             <a href="#" class="card-link"><%= link_to 'More info', car, :class => "btn btn-outline-dark" %></a>
           </div>
         </div>
