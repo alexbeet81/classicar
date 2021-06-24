@@ -14,7 +14,7 @@
         <ul class="list-group list-group-flush">
           <li class="list-group-item" style="border: none">Year: <%= @car.year %></li>
           <li class="list-group-item" style="border: none">Colour: <%= @car.colour %></li>
-          <li class="list-group-item" style="border: none">Booking Period: <%= @booking.start_time %> to <%= @booking.end_time %></li>
+          <li class="list-group-item" style="border: none">Booking Period: <%= @booking.start_time.strftime("%-d/%-m/%Y") %> to <%= @booking.end_time.strftime("%-d/%-m/%Y") %></li>
         </ul>
         <div class="card-body" style="border: none">
           <a href="#" class="card-link"><%= link_to 'edit booking', edit_booking_path(@booking), class: "btn btn-outline-secondary" %></a>
@@ -27,3 +27,5 @@
     </div>
   </div>
 </div>
+
+
