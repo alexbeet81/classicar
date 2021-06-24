@@ -53,17 +53,17 @@
       <div class="col-4 p-5">
         <div class="card shadow">
           <%= cl_image_tag car.photo.key, :class => "card-img-top mark-card-image" %>
-          <div class="card-body pb-0">
+          <div class="card-body">
             <% if car.model.length < 16 %>
-              <h5 class="card-title text-center" style="font-size: 32px; font-family: Fugaz One;"><%= car.model %></h5>
+              <h5 class="card-title text-center" style="font-size: 32px; font-family: Fugaz One; height: 50px;"><%= car.model %></h5>
             <% else %>
-              <h5 class="card-title text-center" style="font-size: 24px; font-family: Fugaz One;"><%= car.model %></h5>
+              <h5 class="card-title text-center" style="font-size: 24px; font-family: Fugaz One; height: 50px;"><%= car.model %></h5>
             <% end %>
           </div>
           <div class="mx-5 d-flex align-items-center justify-content-between">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item" style="font-family: 'Open Sans', sans-serif;">Year: <%= car.year %></li>
-              <li class="list-group-item" style="font-family: 'Open Sans', sans-serif;">£<%= car.price %> / hour</li>
+            <ul class="list-group list-group-flush pb-2">
+              <li class="list-group-item">Year: <%= car.year %></li>
+              <li class="list-group-item">£<%= car.price %> / hour</li>
             </ul>
             <a href="#" class="card-link"><%= link_to 'More info', car, :class => "btn btn-outline-dark" %></a>
           </div>
