@@ -8,21 +8,19 @@
       </div>
     </div>
     <div class="nav-center">
+        <%= form_tag cars_path, method: :get do %>
       <div class="search-box">
-        <div>
-          <%= form_tag cars_path, method: :get do %>
-            <%= text_field_tag :query,
-              params[:query],
-              class: "search-input",
-              placeholder: "Find a car"
-            %>
-        </div>
-        <div class="search-icon-box">
-          <!-- <%= image_tag "binoculars-svgrepo-com.svg", :class => "search-icon" %> -->
-          <%= image_submit_tag "binoculars-svgrepo-com.svg", class: "search-icon" %>
-        </div>
-        <% end %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "search-input",
+          placeholder: "Find a car"
+        %>
+      <div class="search-icon-box">
+        <!-- <%= image_tag "binoculars-svgrepo-com.svg", :class => "search-icon" %> -->
+        <%= image_submit_tag "binoculars-svgrepo-com.svg", class: "search-icon" %>
       </div>
+    </div>
+        <% end %>
     </div>
     <div class="nav-right">
       <div class="menu-box">
