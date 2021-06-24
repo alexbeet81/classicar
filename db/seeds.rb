@@ -86,6 +86,7 @@ classic_cars.each_with_index do |car, index|
 end
 
 count = 0
+
 100.times do
   new_user = User.new(
     email: Faker::Internet.email,
@@ -94,27 +95,76 @@ count = 0
     )
   new_user.save
   puts "created new user: #{new_user.username}"
-  rand(1..3).times do
-    classic_car = classic_cars.sample
-    file = URI.open(classic_car[:image_one])
-    new_car = Car.new(
-      model: classic_car[:model],
-      seats: classic_car[:seats],
-      year: classic_car[:year],
-      colour: classic_car[:colour],
-      image_one: classic_car[:image_one],
-      price: rand(100),
-      address: classic_car[:address],
-      user_id: new_user.id,
-      description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4)
-      )
-    new_car.photo.attach(io: file, filename: "#{classic_car[:model]}.jpg", content_type: 'image/jpg')
-    new_car.save!
-    puts "#{new_user.username} has a #{new_car.model}"
+  3.times do
+    classic_cars.each_with_index do |car, index|
+      if index == count
+        file = URI.open(car[:image_one])
+        new_car = Car.new(
+          model: car[:model],
+          seats: car[:seats],
+          year: car[:year],
+          colour: car[:colour],
+          image_one: car[:image_one],
+          price: rand(100),
+          address: car[:address],
+          user_id: new_user.id,
+          description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4)
+          )
+        new_car.photo.attach(io: file, filename: "#{car[:model]}.jpg", content_type: 'image/jpg')
+        new_car.save!
+        puts "#{new_user.username} has a #{new_car.model}"
+      end
+    end
   end
 end
 
 puts "created #{User.count} new users and #{Car.count} new cars."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 100.times do
+#   new_user = User.new(
+#     email: Faker::Internet.email,
+#     password: "123456",
+#     username: Faker::Name.name
+#     )
+#   new_user.save
+#   puts "created new user: #{new_user.username}"
+#   rand(1..3).times do
+#     classic_car = classic_cars.sample
+#     file = URI.open(classic_car[:image_one])
+#     new_car = Car.new(
+#       model: classic_car[:model],
+#       seats: classic_car[:seats],
+#       year: classic_car[:year],
+#       colour: classic_car[:colour],
+#       image_one: classic_car[:image_one],
+#       price: rand(100),
+#       address: classic_car[:address],
+#       user_id: new_user.id,
+#       description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4)
+#       )
+#     new_car.photo.attach(io: file, filename: "#{classic_car[:model]}.jpg", content_type: 'image/jpg')
+#     new_car.save!
+#     puts "#{new_user.username} has a #{new_car.model}"
+#   end
+# end
+
+# puts "created #{User.count} new users and #{Car.count} new cars."
 
 
 
