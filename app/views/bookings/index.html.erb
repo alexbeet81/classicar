@@ -19,8 +19,7 @@
               <% if booking.cancelled == true %>
                 <li class="list-group-item">Booking cancelled</li>
               <% else %>
-                <li class="list-group-item" style="border: none">Booking Period: <%= booking.start_time.strftime("%-d/%-m/%Y") %> to <%= b
-                ooking.end_time.strftime("%-d/%-m/%Y") %></li>
+                <li class="list-group-item" style="border: none">Booking Period: <%= booking.start_time.strftime("%-d/%-m/%Y") %> to <%= booking.end_time.strftime("%-d/%-m/%Y") %></li>
               <% end %>
               </ul>
               <% unless booking.cancelled == true %>
