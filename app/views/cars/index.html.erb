@@ -43,14 +43,14 @@
     </div>
   </div>
 
-  <hr style="color: gray; margin: 40px 80px 20px 80px;">  
+  <hr style="color: gray; margin: 40px 80px 20px 80px;">
 
   <div class="container">
   <h1 class="ml-4" style="margin-left: 80px; font-family: Fugaz One;">Cars</h1>
   <%= link_to "Add car", new_car_path, :class => "btn btn-dark ml-4" %>
   <div class="row d-flex">
     <% @cars.each do |car| %>
-      <div class="col-4 p-5">
+      <div class="col-4 p-5" id="fade">
         <div class="card shadow">
           <%= cl_image_tag car.photo.key, :class => "card-img-top mark-card-image" %>
           <div class="card-body pb-0">
