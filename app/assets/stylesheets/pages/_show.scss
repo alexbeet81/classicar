@@ -1,6 +1,7 @@
 .card-horizontal {
   display: flex;
   flex: 1 1 auto;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .show-img-size {
@@ -16,4 +17,10 @@
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   font-size: 30px;
+}
+
+.review-comment {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
 }
