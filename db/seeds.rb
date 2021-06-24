@@ -11,12 +11,12 @@
 require "open-uri"
 require "faker"
 
-puts "destroying all cars"
-Car.destroy_all
-puts "done"
-puts "destroying all users"
-User.destroy_all
-puts "done"
+# puts "destroying all cars"
+# Car.destroy_all
+# puts "done"
+# puts "destroying all users"
+# User.destroy_all
+# puts "done"
 
 classic_cars = [{model: 'Jaguar E-Type', seats: '2', year: '1967', address: '8 Meishuguan E St, Dongcheng, Beijing, China', colour: 'silver', image_one: 'https://hips.hearstapps.com/toc.h-cdn.co/assets/16/14/3200x1600/landscape-1459816624-1954-mercedes-300sl-gullwing-a.jpg?resize=980:*'},
                 {model: 'Chevrolet Corvette c1', seats: '2', year: '1963', address: '2 Wudaoying Hutong, Dongcheng, Beijing, China, 100027',  colour: 'red', image_one: 'https://hips.hearstapps.com/toc.h-cdn.co/assets/16/14/2560x1906/1968-chevrolet-corvette_1.jpg?resize=980:*'},
@@ -79,6 +79,13 @@ classic_cars = [{model: 'Jaguar E-Type', seats: '2', year: '1967', address: '8 M
 
 # address = ['Beijing', 'Shanghai', 'Tianjin', 'Chengdu', 'Shenzhen', 'Guangzhou', 'Chongqing', 'Dongguan']
 
+classic_cars.each_with_index do |car, index|
+  if index == 5
+    puts car[:model]
+  end
+end
+
+count = 0
 100.times do
   new_user = User.new(
     email: Faker::Internet.email,
