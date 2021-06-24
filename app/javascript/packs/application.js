@@ -32,13 +32,14 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
 });
 
+// sticks navbar on top
 document.addEventListener("DOMContentLoaded", function(){
   window.addEventListener('scroll', function() {
-      if (window.scrollY > 50) {
+      if (window.scrollY > 0) {
         document.getElementById('navbar_top').classList.add('fixed-top');
         // add padding top to show content behind navbar
-        navbar_height = document.querySelector('.nav-wrapper').offsetHeight;
-        document.body.style.paddingTop = navbar_height + 'px';
+        // navbar_height = document.querySelectorAll('.nav-wrapper').offsetHeight;
+        // document.body.style.paddingTop = navbar_height + 'px';
       } else {
         document.getElementById('navbar_top').classList.remove('fixed-top');
          // remove padding top from body
@@ -47,5 +48,13 @@ document.addEventListener("DOMContentLoaded", function(){
   });
 });
 
-ScrollReveal().reveal('.col-4', {delay: 500});
+//fade car cards in
+ScrollReveal().reveal('.col-4', {delay: 400});
 
+//changes color of navbar on scroll
+$(function () {
+  $(document).scroll(function () {
+    var $nav = $(".nav-wrapper");
+    $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+  });
+});
