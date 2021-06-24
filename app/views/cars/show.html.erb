@@ -57,7 +57,7 @@
   <% unless @current_user == @user %>
     
     <div class="col-4">
-      <div class="card shadow rounded p-4">
+      <div class="card shadow rounded p-4" style="position: sticky; top: 100px;">
         <h1 class="ml-4 mt-3 fugaz-font">book this car!</h1>
         <div class="form ml-4">
           <%= simple_form_for([@car, @booking] ) do |f| %>
