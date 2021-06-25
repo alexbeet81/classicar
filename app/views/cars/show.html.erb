@@ -39,7 +39,7 @@
             <% @reviews.each do |review| %>
               <% if @car.id == review.car_id %>
                 <h2 class="mt-2 pl-3 review-comment"><%= review.comment %></h2>
-                <h5 class="pl-3"><%= '⭐️' * review.star %></h5>
+                <h5 class="pl-3"><%= image_tag('car-wheel.svg', class: "wheel-image") * review.star %></h5>
                 <% if review.user_id == current_user %>
                   <a href=""><%= link_to 'edit', edit_review_path(review) %></a>
                   <a href=""><%= link_to 'delete', review_path(review),
