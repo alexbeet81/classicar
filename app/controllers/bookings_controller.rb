@@ -37,6 +37,8 @@ class BookingsController < ApplicationController
   def show
     @car = @booking.car
     @car_owner = @car.user
+
+
   end
 
   def edit; end

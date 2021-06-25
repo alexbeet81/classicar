@@ -37,6 +37,13 @@ class CarsController < ApplicationController
 
     @reviews = Review.all
 
+    @show_review_button = false
+    @bookings.each do |booking|
+      if booking.user == current_user
+        @show_review_button = true
+      end
+    end
+
     @booking = Booking.new
     authorize @booking
   end
