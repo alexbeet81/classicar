@@ -32,7 +32,7 @@
             <div>
             <% @bookings.each do |booking| %>
               <% if booking.user == current_user %>
-                <a href="#" class="card-link"><%= link_to 'add review', new_car_review_path(@car), class: "btn btn-outline-dark" %></a>
+                <%= link_to 'add review', new_car_review_path(@car), class: "btn btn-outline-dark" %> 
               <% end %>
             <% end %>
             </div>

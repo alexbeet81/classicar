@@ -1,10 +1,10 @@
-<div class="container">
-  <h1 class="form-text">review</h1>
-  <div class="container form">
+<div class="review-form-container shadow rounded">
+  <h1 class="fugaz-font larger" style="font-size: 24px;">Leave a review!</h1>
+  <div class="form">
     <%= simple_form_for([@car, @review] ) do |f| %>
-      <%= f.input :comment %>
-      <%= f.input :star%>
-      <%= f.submit %>
+      <%= f.input :comment, required: false %>
+      <%= f.input :star, required: false %>
+      <%= f.button :submit, "Post Review", class: 'btn btn-outline-dark' %>
     <% end %>
   </div>
 </div>
