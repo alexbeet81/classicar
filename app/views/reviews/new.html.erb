@@ -3,7 +3,7 @@
   <div class="form">
     <%= simple_form_for([@car, @review] ) do |f| %>
       <%= f.input :comment, required: false %>
-      <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
+      <%= f.input :star, collection: (1..5).to_a, label: "Rate your experience" %>
       <%= f.button :submit, "Post Review", class: 'btn btn-outline-dark' %>
     <% end %>
   </div>
