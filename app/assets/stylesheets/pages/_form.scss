@@ -27,8 +27,16 @@
   height: auto;
   margin: 0 auto;
   opacity: 2;
-  position: relative;
   background-color: white;
 
 }
 
+.review-form-container {
+  margin: 100px auto; 
+  width: 600px;
+  height: auto;
+  top: 50px;
+  position: relative;
+  padding: 20px;
+  background-color: white;
+}
