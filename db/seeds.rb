@@ -79,7 +79,15 @@ classic_cars = [{model: 'Jaguar E-Type', seats: '2', year: '1967', address: '8 M
 
 # address = ['Beijing', 'Shanghai', 'Tianjin', 'Chengdu', 'Shenzhen', 'Guangzhou', 'Chongqing', 'Dongguan']
 
-100.times do
+classic_cars.each_with_index do |car, index|
+  if index == 5
+    puts car[:model]
+  end
+end
+
+count = 0
+
+30.times do
   new_user = User.new(
     email: Faker::Internet.email,
     password: "123456",
@@ -87,27 +95,94 @@ classic_cars = [{model: 'Jaguar E-Type', seats: '2', year: '1967', address: '8 M
     )
   new_user.save
   puts "created new user: #{new_user.username}"
-  rand(1..3).times do
-    classic_car = classic_cars.sample
-    file = URI.open(classic_car[:image_one])
-    new_car = Car.new(
-      model: classic_car[:model],
-      seats: classic_car[:seats],
-      year: classic_car[:year],
-      colour: classic_car[:colour],
-      image_one: classic_car[:image_one],
-      price: rand(100),
-      address: classic_car[:address],
-      user_id: new_user.id,
-      description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4)
-      )
-    new_car.photo.attach(io: file, filename: "#{classic_car[:model]}.jpg", content_type: 'image/jpg')
-    new_car.save!
-    puts "#{new_user.username} has a #{new_car.model}"
+  break_loop = rand(2)
+  classic_cars.each_with_index do |car, index|
+      if index == count && break_loop < 3
+        file = URI.open(car[:image_one])
+        new_car = Car.new(
+          model: car[:model],
+          seats: car[:seats],
+          year: car[:year],
+          colour: car[:colour],
+          image_one: car[:image_one],
+          price: rand(100),
+          address: car[:address],
+          user_id: new_user.id,
+          description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4)
+          )
+        new_car.photo.attach(io: file, filename: "#{car[:model]}.jpg", content_type: 'image/jpg')
+        new_car.save!
+        puts "#{new_user.username} has a #{new_car.model}"
+        count += 1
+        break_loop += 1
+
+        rand(1..5).times do
+          review_user = User.new(
+            email: Faker::Internet.email,
+            password: "123456",
+            username: Faker::Name.name
+            )
+          review_user.save!
+
+          review = Review.new(
+            comment: Faker::TvShows::Seinfeld.quote,
+            star: rand(1..5),
+            user_id: review_user.id,
+            car_id: new_car.id
+            )
+          review.save!
+        end
+      end
+    end
   end
-end
 
 puts "created #{User.count} new users and #{Car.count} new cars."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 100.times do
+#   new_user = User.new(
+#     email: Faker::Internet.email,
+#     password: "123456",
+#     username: Faker::Name.name
+#     )
+#   new_user.save
+#   puts "created new user: #{new_user.username}"
+#   rand(1..3).times do
+#     classic_car = classic_cars.sample
+#     file = URI.open(classic_car[:image_one])
+#     new_car = Car.new(
+#       model: classic_car[:model],
+#       seats: classic_car[:seats],
+#       year: classic_car[:year],
+#       colour: classic_car[:colour],
+#       image_one: classic_car[:image_one],
+#       price: rand(100),
+#       address: classic_car[:address],
+#       user_id: new_user.id,
+#       description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4)
+#       )
+#     new_car.photo.attach(io: file, filename: "#{classic_car[:model]}.jpg", content_type: 'image/jpg')
+#     new_car.save!
+#     puts "#{new_user.username} has a #{new_car.model}"
+#   end
+# end
+
+# puts "created #{User.count} new users and #{Car.count} new cars."
 
 
 
