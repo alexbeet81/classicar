@@ -5,7 +5,7 @@
       <% @bookings.each do |booking| %>
         <% car = booking.car %>
         <% car_owner = car.user %>
-        <div class="col-4 p-5 load-hidden">
+        <div class="col-4 p-5">
           <div class="card shadow ">
             <%= cl_image_tag car.photo.key, :class => "card-img-top mark-card-image" %>
               <div class="card-body">
@@ -16,10 +16,12 @@
                 <li class="list-group-item">Year: <%= car.year %></li>
                 <li class="list-group-item">Colour: <%= car.colour %></li>
                 <li class="list-group-item">£<%= car.price %> / hour</li>
-              </ul>
               <% if booking.cancelled == true %>
-                <p>this booking has been cancelled.</p>
+                <li class="list-group-item">Booking cancelled</li>
+              <% else %>
+                <li class="list-group-item" style="border: none">Booking Period: <%= booking.start_time.strftime("%-d/%-m/%Y") %> to <%= booking.end_time.strftime("%-d/%-m/%Y") %></li>
               <% end %>
+              </ul>
               <% unless booking.cancelled == true %>
                 <div class="card-body">
                   <%= link_to 'edit booking', edit_booking_path(booking), class: "btn btn-outline-secondary" %>

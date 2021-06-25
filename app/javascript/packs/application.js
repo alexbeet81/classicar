@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 //fade car cards in
-ScrollReveal().reveal('.col-4', {delay: 400});
+ScrollReveal().reveal('#fade', {delay: 400});
 
 //changes color of navbar on scroll
 $(function () {
