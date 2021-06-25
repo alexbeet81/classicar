@@ -87,7 +87,7 @@ end
 
 count = 0
 
-19.times do
+30.times do
   new_user = User.new(
     email: Faker::Internet.email,
     password: "123456",
@@ -95,9 +95,9 @@ count = 0
     )
   new_user.save
   puts "created new user: #{new_user.username}"
-  3.times do
-    classic_cars.each_with_index do |car, index|
-      if index == COUNT
+  break_loop = rand(2)
+  classic_cars.each_with_index do |car, index|
+      if index == count && break_loop < 3
         file = URI.open(car[:image_one])
         new_car = Car.new(
           model: car[:model],
@@ -114,10 +114,27 @@ count = 0
         new_car.save!
         puts "#{new_user.username} has a #{new_car.model}"
         count += 1
+        break_loop += 1
+
+        rand(1..5).times do
+          review_user = User.new(
+            email: Faker::Internet.email,
+            password: "123456",
+            username: Faker::Name.name
+            )
+          review_user.save!
+
+          review = Review.new(
+            comment: Faker::TvShows::Seinfeld.quote,
+            star: rand(1..5),
+            user_id: review_user.id,
+            car_id: new_car.id
+            )
+          review.save!
+        end
       end
     end
   end
-end
 
 puts "created #{User.count} new users and #{Car.count} new cars."
 
