@@ -17,7 +17,7 @@
                     <li class="list-group-item">description</li>
                     <li class="list-group-item"><%= @car.description %></li>
                   </ul>
-                  
+
                     <% if policy(@car).destroy? %>
                       <a href="#" class="card-link"><%= link_to 'edit car', edit_car_path(@car) %></a>
                       <a href="#" class="card-link"><%= link_to 'delete car',
@@ -30,11 +30,9 @@
           <div class="card-footer d-flex justify-content-between">
             <small class="text-muted">Owner: <%= @user.username %></small>
             <div>
-            <% @bookings.each do |booking| %>
-              <% if booking.user == current_user %>
-                <%= link_to 'add review', new_car_review_path(@car), class: "btn btn-outline-dark" %> 
+              <% if @show_review_button %>
+                <a href="#" class="card-link"><%= link_to 'add review', new_car_review_path(@car), class: "btn btn-outline-dark" %></a>
               <% end %>
-            <% end %>
             </div>
           </div>
           <div>
@@ -55,7 +53,7 @@
       </div>
     </div>
   <% unless @current_user == @user %>
-    
+
     <div class="col-4">
       <div class="card shadow rounded p-4" style="position: sticky; top: 100px;">
         <h1 class="ml-4 mt-3 fugaz-font">book this car!</h1>
