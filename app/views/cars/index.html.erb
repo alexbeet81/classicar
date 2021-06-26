@@ -21,7 +21,7 @@
           <div class="mx-2 d-flex align-items-center justify-content-between">
             <ul class="list-group list-group-flush">
               <li class="list-group-item" style="font-family: 'Open Sans', sans-serif;">Year: <%= car.year %></li>
-              <li class="list-group-item" style="font-family: 'Open Sans', sans-serif;">£<%= car.price %> / hour</li>
+              <li class="list-group-item" style="font-family: 'Open Sans', sans-serif;">£<%= car.price %> / day</li>
             </ul>
             <a href="#" class="card-link"><%= link_to 'More info', car, :class => "btn btn-outline-dark" %></a>
           </div>
@@ -67,7 +67,7 @@
             <ul class="list-group list-group-flush pb-2">
               <li class="list-group-item"><%= car.city %></li>
               <li class="list-group-item">Year: <%= car.year %></li>
-              <li class="list-group-item">£<%= car.price %> / hour</li>
+              <li class="list-group-item">£<%= car.price %> / day</li>
             </ul>
             <a href="#" class="card-link"><%= link_to 'More info', car, :class => "btn btn-outline-dark" %></a>
           </div>
