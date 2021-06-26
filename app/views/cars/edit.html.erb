@@ -1,13 +1,36 @@
 <div class="container">
-  <%= simple_form_for(@car) do |f| %>
-    <%= f.input :model %>
-    <%= f.input :year %>
-    <%= f.input :seats %>
-    <%= f.input :colour %>
-    <%= f.input :address %>
-    <%= f.input :price %>
-    <%= f.input :description %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit "Create Car!", class: "btn btn-primary" %>
-  <% end %>
+  <div class="add-car-form shadow rounded">
+    <h1 class="fugaz-font m-3" style="font-size: 24px; text-align: center;">Edit your car</h1>
+    <%= simple_form_for(@car) do |f| %>
+    <div class="row">
+      <div class="col">
+      <%= f.input :model, required: false %>
+      
+      </div>
+      <div class="col">
+      <%= f.input :year, required: false %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+      <%= f.input :seats, required: false %>
+      </div>
+      <div class="col">
+      <%= f.input :colour, required: false %>
+      </div>
+    </div>
+      <%= f.input :address, required: false %>
+      <%= f.input :price, required: false %>
+      <%= f.input :description, required: false %>
+    <div class="row">
+      <div class="col d-flex justify-content-start">
+      <%= f.input :photo, as: :file %>
+      </div>
+      <div class="col d-flex justify-content-end">
+      <%= f.submit "Update Car", class: "btn btn-outline-dark add-car-button mt-4" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>
+
