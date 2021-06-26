@@ -1,6 +1,8 @@
 <div class="container">
   <div class="row justify-content-center">
     <h2 class="show-viewing-title">You are viewing <span class="font-italic fugaz-font"><%= @car.model %></span></h2>
+  </div>
+  <div class="row">
     <div class="col-8">
       <div class="card shadow rounded">
           <div class="card-horizontal">
@@ -13,16 +15,17 @@
                     <li class="list-group-item">Year: <%= @car.year %></li>
                     <li class="list-group-item">Colour: <%= @car.colour %></li>
                     <li class="list-group-item">Address: <%= @car.address %></li>
-                    <li class="list-group-item">£<%= @car.price %> / hour</li>
+                    <li class="list-group-item">£<%= @car.price %> / day</li>
                     <li class="list-group-item">description</li>
                     <li class="list-group-item"><%= @car.description %></li>
                   </ul>
-                  
+
                     <% if policy(@car).destroy? %>
-                      <a href="#" class="card-link"><%= link_to 'edit car', edit_car_path(@car) %></a>
+                      <a href="#" class="card-link"><%= link_to 'edit car', edit_car_path(@car), class: "btn btn-outline-dark" %></a>
                       <a href="#" class="card-link"><%= link_to 'delete car',
                                                                 car_path(@car),
                                                                 method: :delete,
+                                                                class: "btn btn-outline-dark",
                                                                 data: { confirm: 'Are you sure you want to delete this car?'} %></a>
                     <% end %>
               </div>
@@ -30,18 +33,16 @@
           <div class="card-footer d-flex justify-content-between">
             <small class="text-muted">Owner: <%= @user.username %></small>
             <div>
-            <% @bookings.each do |booking| %>
-              <% if booking.user == current_user %>
+              <% if @show_review_button %>
                 <a href="#" class="card-link"><%= link_to 'add review', new_car_review_path(@car), class: "btn btn-outline-dark" %></a>
               <% end %>
-            <% end %>
             </div>
           </div>
           <div>
             <% @reviews.each do |review| %>
               <% if @car.id == review.car_id %>
-                <h2><%= review.comment %></h2>
-                <h5><%= '⭐️' * review.star %></h5>
+                <h2 class="mt-2 pl-3 review-comment"><%= review.comment %> - <span class="font-weight-bold"><%= review.user.username %></span></h2>
+                <h5 class="pl-3"><%= image_tag('car-wheel.svg', class: "wheel-image") * review.star %></h5>
                 <% if review.user_id == current_user %>
                   <a href=""><%= link_to 'edit', edit_review_path(review) %></a>
                   <a href=""><%= link_to 'delete', review_path(review),
@@ -55,9 +56,9 @@
       </div>
     </div>
   <% unless @current_user == @user %>
-    
+
     <div class="col-4">
-      <div class="card shadow rounded p-4">
+      <div class="card shadow rounded p-4" style="position: sticky; top: 100px;">
         <h1 class="ml-4 mt-3 fugaz-font">book this car!</h1>
         <div class="form ml-4">
           <%= simple_form_for([@car, @booking] ) do |f| %>

@@ -25,7 +25,7 @@ class CarsController < ApplicationController
         lat: car.latitude,
         lng: car.longitude,
         info_window: render_to_string(partial: "info_window", locals: { car: car }),
-        image_url: helpers.asset_url('hero-car.png')
+        image_url: helpers.asset_path('hero-car.png')
       }
     end
   end
@@ -36,6 +36,13 @@ class CarsController < ApplicationController
     @bookings = @car.bookings
 
     @reviews = Review.all
+
+    @show_review_button = false
+    @bookings.each do |booking|
+      if booking.user == current_user
+        @show_review_button = true
+      end
+    end
 
     @booking = Booking.new
     authorize @booking

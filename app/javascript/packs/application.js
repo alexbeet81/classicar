@@ -21,6 +21,8 @@ ActiveStorage.start()
 // External imports
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
+import { initStarRating } from '../plugins/init_star_rating';
+
 
 
 // Internal imports, e.g:
@@ -30,6 +32,9 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initMapbox();
+  // Star Rating for Reviews
+  initStarRating();
+
 });
 
 // sticks navbar on top
@@ -58,3 +63,4 @@ $(function () {
     $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
   });
 });
+
