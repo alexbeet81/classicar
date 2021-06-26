@@ -23,10 +23,13 @@
 
   <body>
     <div class="container-fluid" style="margin-top: 100px; padding: 0;">
-      <%= render 'shared/navbar' %>
       <p hidden class="notice"><%= notice %></p>
       <p hidden class="alert"><%= alert %></p>
-      <%= render './components/navbar' %>
+      <% if content_for(:navbar) %>
+        <%= render './components/navbar2' %>
+      <% else %>
+        <%= render './components/navbar' %>
+      <% end -%>
       <%= yield %>
       <%= render './components/footer' %>
     </div>

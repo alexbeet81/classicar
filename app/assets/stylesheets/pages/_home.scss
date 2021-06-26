@@ -66,7 +66,7 @@ body {
 	position: absolute;
 	top: 0px;
   transition: background-color 200ms linear;
-  box-shadow: 1px 6px 5px 0px rgba(215,215,215,0.50);
+
 	/*position:  fixed;
 	top: 0px;
 	*/
@@ -75,8 +75,26 @@ body {
 .nav-wrapper.scrolled {
   background-color: #fff !important;
   transition: background-color 200ms linear;
+  box-shadow: 1px 6px 5px 0px rgba(215,215,215,0.50);
 }
 
+.nav-wrapper2 {
+  display: flex;
+  width:  100%;
+  height:  100px;
+  padding: 0 80px;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9;
+  position: absolute;
+  top: 0px;
+  background-color: #fff !important;
+  box-shadow: 1px 6px 5px 0px rgba(215,215,215,0.50);
+
+  /*position:  fixed;
+  top: 0px;
+  */
+}
 .nav-left {
 	width: 100px;
 	height: 80px;
