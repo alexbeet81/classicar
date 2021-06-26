@@ -41,7 +41,7 @@
           <div>
             <% @reviews.each do |review| %>
               <% if @car.id == review.car_id %>
-                <h2 class="mt-2 pl-3 review-comment"><%= review.comment %> - <%= review.user.username %></h2>
+                <h2 class="mt-2 pl-3 review-comment"><%= review.comment %> - <span class="font-weight-bold"><%= review.user.username %></span></h2>
                 <h5 class="pl-3"><%= image_tag('car-wheel.svg', class: "wheel-image") * review.star %></h5>
                 <% if review.user_id == current_user %>
                   <a href=""><%= link_to 'edit', edit_review_path(review) %></a>
